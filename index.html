@@ -1,182 +1,330 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DVBG Clan – Offizielles Regelwerk</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DVBG Clan — Offizielles Regelwerk</title>
+  <meta name="description" content="Modernes, übersichtliches Regelwerk des DVBG Clans auf OPSucht — responsiv & schön gestaltet." />
   <style>
-    :root {
-      --accent: #ff4b2b;
-      --bg: #0f0f0f;
-      --text: #f5f5f5;
-      --card: #1b1b1b;
-      --highlight: #ff6f61;
+    /* --- Palette & tokens --- */
+    :root{
+      --bg-1:#071029;    /* deep navy */
+      --bg-2:#0b1530;    /* panel bg */
+      --glass: rgba(255,255,255,0.03);
+      --muted:#9fb0c8;
+      --text:#e6f0ff;
+      --accent-1:#7c3aed; /* purple */
+      --accent-2:#06b6d4; /* teal */
+      --accent-3:#ffb86b; /* warm */
+      --radius:10px;
+      --max-w:1150px;
+      --card-shadow: 0 12px 30px rgba(3,6,20,0.6);
+      --glass-border: 1px solid rgba(255,255,255,0.035);
+      color-scheme: dark;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      font-family: "Inter", sans-serif;
-    }
+    /* --- Base --- */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(900px 500px at 90% 80%, rgba(6,182,212,0.06), transparent), linear-gradient(180deg,var(--bg-1),#041225 60%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:var(--text);-webkit-font-smoothing:antialiased}
+    a{color:inherit}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    .wrap{max-width:var(--max-w);margin:28px auto;padding:20px}
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: var(--card);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+    /* --- Header --- */
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo-img{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:20px;box-shadow:0 18px 40px rgba(4,6,20,0.6);overflow:hidden}
+    .logo-img img{width:100%;height:100%;object-fit:cover;display:block}
+    h1{margin:0;font-size:20px}
+    .subtitle{margin:0;color:var(--muted);font-size:13px}
 
-    header img {
-      height: 48px;
-      width: auto;
-      object-fit: contain;
-    }
+    nav{display:flex;gap:10px;align-items:center}
+    nav a{padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600;font-size:13px}
+    nav a:hover{color:var(--text);background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent)}
 
-    header h1 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: var(--accent);
-    }
+    /* --- Hero / intro --- */
+    .hero{margin-top:22px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:12px;border:var(--glass-border);box-shadow:var(--card-shadow);display:flex;gap:22px;align-items:center}
+    .hero-left{flex:1}
+    .hero h2{margin:0 0 6px 0;font-size:22px}
+    .hero p{margin:0;color:var(--muted)}
+    .accent-row{display:flex;gap:8px;margin-top:12px}
+    .accent-pill{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));font-weight:700;color:white;font-size:13px;box-shadow:0 8px 30px rgba(6,22,70,0.45)}
 
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: var(--card);
-      border-radius: 8px;
-      padding: 2rem;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-      animation: fadeIn 0.8s ease-in-out;
-    }
+    /* --- Layout --- */
+    main{display:grid;grid-template-columns:1fr 340px;gap:22px;margin-top:18px}
 
-    section {
-      margin-bottom: 2rem;
-    }
+    /* --- Content blocks (modern: less rounded, subtle glass) --- */
+    .block{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:8px;border:var(--glass-border);box-shadow:0 10px 28px rgba(4,6,20,0.55)}
+    .block h3{margin:0 0 8px 0}
+    .muted{color:var(--muted)}
+    .rule p{margin:8px 0;color:#dbeafe}
+    code{background:rgba(255,255,255,0.03);padding:3px 7px;border-radius:6px;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, monospace}
 
-    h2 {
-      color: var(--highlight);
-      border-bottom: 2px solid var(--highlight);
-      margin-bottom: 0.8rem;
-      padding-bottom: 0.3rem;
-    }
+    /* icons & grid for rules */
+    .rules-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .rule-card{padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .rule-card h4{margin:0 0 6px 0}
+    .rule-card p{margin:0;color:var(--muted);font-size:14px}
 
-    p, li {
-      margin-bottom: 0.4rem;
-      font-size: 1rem;
-    }
+    /* --- Aside --- */
+    aside{position:relative}
+    .aside-card{position:sticky;top:24px;padding:16px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:var(--glass-border);box-shadow:0 10px 26px rgba(3,6,20,0.5)}
+    .aside-card h4{margin:0 0 8px 0}
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--card);
-      font-size: 0.9rem;
-      color: #ccc;
-    }
+    .cta{margin-top:12px;display:flex;gap:10px}
+    .cta .secondary{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);font-weight:700;cursor:pointer}
 
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    /* --- subtle motion --- */
+    .animate-up{transform:translateY(8px);opacity:0;animation:up .6s ease forwards}
+    .animate-stagger{opacity:0;animation:fade .6s ease forwards;animation-delay:0.12s}
+    @keyframes up{to{transform:none;opacity:1}}
+    @keyframes fade{to{opacity:1}}
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    /* hover effects for rule cards */
+    .rule-card:hover{transform:translateY(-6px);transition:transform .22s ease;box-shadow:0 18px 40px rgba(4,8,30,0.55)}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* footer */
+    footer{margin-top:22px;color:var(--muted);text-align:center;font-size:13px}
+
+    /* responsive */
+    @media (max-width:980px){main{grid-template-columns:1fr;} .rules-grid{grid-template-columns:1fr} .logo-img{width:56px;height:56px}}
+    @media (max-width:520px){.hero{flex-direction:column;align-items:start}}
+
+    /* accessibility focus */
+    a:focus, button:focus{outline:3px solid rgba(124,58,237,0.2);outline-offset:2px}
+
+    /* print: a cleaner black-on-white layout for printing */
+    @media print{
+      body{background:white;color:black}
+      header nav, .accent-pill, .cta .secondary{display:none}
+      .wrap{max-width:210mm;padding:18mm;margin:0}
+      .block, .aside-card, .hero{background:transparent;border:none;box-shadow:none}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div id="logo-container">
-      <span id="fallback-logo">DVBG</span>
+  <div class="wrap">
+    <header>
+      <div class="brand animate-up" style="animation-delay:0.05s">
+        <div class="logo-img" aria-hidden>
+          <img id="logoImg" src="logo/logo.png" alt="DVBG Logo" onerror="this.style.display='none'" />
+        </div>
+        <div>
+          <h1>DVBG Clan — Offizielles Regelwerk</h1>
+          <p class="subtitle">Klare Regeln für ein faires &amp; respektvolles Miteinander auf OPSucht</p>
+        </div>
+      </div>
+
+      <nav class="animate-stagger" style="animation-delay:0.12s">
+        <a href="#allgemein">Allgemein</a>
+        <a href="#discord">Discord</a>
+        <a href="#aktivitaet">Teilnahme</a>
+        <a href="#events">Events</a>
+        <a href="#sicherheit">Sicherheit</a>
+        <a href="#impressum">Impressum</a>
+      </nav>
+    </header>
+
+    <div class="hero animate-up" style="animation-delay:0.18s">
+      <div class="hero-left">
+        <h2>Willkommen im DVBG Clan auf OPSucht</h2>
+        <p class="muted">Dieses Regelwerk soll ein faires, respektvolles und angenehmes Miteinander im Clan, auf dem Server und auf Discord gewährleisten. Mit dem Beitritt erklärst du dich mit allen untenstehenden Regeln einverstanden.</p>
+        <div class="accent-row">
+          <div class="accent-pill">Respect</div>
+          <div class="accent-pill" style="background:linear-gradient(90deg,var(--accent-2),var(--accent-3))">Fairplay</div>
+        </div>
+      </div>
+      <div style="width:220px;display:flex;align-items:center;justify-content:center">
+        <!-- decorative graphic -->
+        <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <rect x="4" y="4" width="152" height="152" rx="18" fill="url(#g)" />
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#7c3aed" stop-opacity="0.95" />
+              <stop offset="1" stop-color="#06b6d4" stop-opacity="0.95" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
     </div>
-    <h1>Offizielles Regelwerk</h1>
-  </header>
 
-  <main>
-    <section>
-      <h2>⚖️ 1. Allgemeines Verhalten</h2>
-      <p><strong>Respekt:</strong> Behandle alle Mitglieder, Gäste und Partner mit Höflichkeit, Fairness und Respekt – unabhängig von Rang, Alter oder Meinung.</p>
-      <p><strong>Sprache:</strong> Beleidigende, diskriminierende, rassistische oder vulgäre Ausdrücke sind strengstens untersagt.</p>
-      <p><strong>Streitigkeiten:</strong> Persönliche Konflikte gehören nicht in öffentliche Chats. Klärt sie privat oder wendet euch an die Clanleitung.</p>
-      <p><strong>Vorbildfunktion:</strong> Jeder repräsentiert den Clan auf OPSucht – verhalte dich dementsprechend verantwortungsbewusst.</p>
-      <p><strong>Fairplay:</strong> Kein Griefing, Stehlen, Hacking oder Bugusing – insbesondere nicht auf dem Clan-Plot (/sw DVBG).</p>
-    </section>
+    <main>
+      <section>
+        <div class="block animate-up" style="animation-delay:0.22s">
+          <h3 id="allgemein">⚖️ 1. Allgemeines Verhalten</h3>
+          <div class="rules-grid" style="margin-top:12px">
+            <div class="rule-card">
+              <h4>Respekt</h4>
+              <p>Behandle alle Mitglieder, Gäste und Partner mit Höflichkeit, Fairness und Respekt – unabhängig von Rang, Alter oder Meinung.</p>
+            </div>
+            <div class="rule-card">
+              <h4>Sprache</h4>
+              <p>Beleidigende, diskriminierende, rassistische oder vulgäre Ausdrücke sind strengstens untersagt.</p>
+            </div>
+            <div class="rule-card">
+              <h4>Streitigkeiten</h4>
+              <p>Persönliche Konflikte gehören nicht in öffentliche Chats. Klärt sie privat oder wendet euch an die Clanleitung, falls nötig.</p>
+            </div>
+            <div class="rule-card">
+              <h4>Vorbildfunktion &amp; Fairplay</h4>
+              <p>Jeder repräsentiert den Clan auf OPSucht – verhalte dich dementsprechend verantwortungsbewusst. Kein Griefing, Stehlen, Hacking oder Bugusing – insbesondere nicht auf dem Clan-Plot (<code>/sw DVBG</code>).</p>
+            </div>
+          </div>
+        </div>
 
-    <section>
-      <h2>💬 2. Verhalten auf Discord</h2>
-      <p><strong>Respektvoller Umgang:</strong> Keine Beleidigungen, kein toxisches Verhalten.</p>
-      <p><strong>Spam & Flooding:</strong> Wiederholte Nachrichten, Emojis oder übermäßige Pings sind untersagt.</p>
-      <p><strong>Kanalordnung:</strong> Nutze jeden Kanal zweckentsprechend (z. B. Bilder in #media, Fragen in #support).</p>
-      <p><strong>Werbung:</strong> Fremdwerbung ist ohne Genehmigung der Leitung verboten.</p>
-    </section>
+        <div class="block animate-up" style="animation-delay:0.28s; margin-top:14px">
+          <h3 id="discord">💬 2. Verhalten auf Discord</h3>
+          <div style="margin-top:10px">
+            <p class="rule"><strong>Respektvoller Umgang:</strong> Gleich wie im Spiel – keine Beleidigungen, kein toxisches Verhalten.</p>
+            <p class="rule"><strong>Spam &amp; Flooding:</strong> Wiederholte Nachrichten, Emojis oder übermäßige Pings sind untersagt.</p>
+            <p class="rule"><strong>Kanalordnung:</strong> Nutze jeden Kanal zweckentsprechend (z. B. Bilder in <code>#media</code>, Fragen in <code>#support</code>).</p>
+            <p class="rule"><strong>Pings:</strong> Erwähne andere Mitglieder oder Rollen nur, wenn es wirklich notwendig ist.</p>
+            <p class="rule"><strong>Unnötiges Channel-Swapping:</strong> Häufiges oder sinnloses Wechseln zwischen Voice-Channels ist nicht erlaubt und stört andere Mitglieder.</p>
+            <p class="rule"><strong>Werbung:</strong> Fremdwerbung (Server, Social Media, Produkte etc.) ist ohne Genehmigung der Leitung verboten.</p>
+          </div>
+        </div>
 
-    <section>
-      <h2>🔥 3. Teilnahme & Aktivität</h2>
-      <p><strong>Aktivität:</strong> Sei regelmäßig aktiv auf OPSucht und Discord. Der Clan lebt von aktiver Teilnahme!</p>
-      <p><strong>Abwesenheit:</strong> Wenn du länger nicht online sein kannst, informiere die Clanleitung im Voraus.</p>
-      <p><strong>Inaktive Mitglieder:</strong> Längere Inaktivität ohne Meldung kann zum Ausschluss führen.</p>
-    </section>
+        <div class="block animate-up" style="animation-delay:0.34s; margin-top:14px">
+          <h3 id="aktivitaet">🔥 3. Teilnahme &amp; Aktivität</h3>
+          <p class="rule"><strong>Aktivität:</strong> Sei regelmäßig aktiv auf OPSucht und auf Discord. Der Clan lebt von aktiver Teilnahme!</p>
+          <p class="rule"><strong>Abwesenheit:</strong> Wenn du länger nicht online sein kannst, informiere die Clanleitung im Voraus.</p>
+          <p class="rule"><strong>Inaktive Mitglieder:</strong> Längere Inaktivität ohne Meldung kann zum Ausschluss führen.</p>
+        </div>
 
-    <section>
-      <h2>⚠️ 6. Konsequenzen</h2>
-      <p>Je nach Schweregrad kann die Clanleitung folgende Maßnahmen ergreifen:</p>
-      <ul>
-        <li>Mündliche oder schriftliche Verwarnung</li>
-        <li>Temporäre Sperre</li>
-        <li>Permanenter Ausschluss</li>
-      </ul>
-    </section>
-  </main>
+        <div class="block animate-up" style="animation-delay:0.40s; margin-top:14px">
+          <h3 id="events">🏆 4. Clan-Events</h3>
+          <p class="rule"><strong>An- &amp; Abmeldung:</strong> Melde dich frühzeitig für Events an – oder rechtzeitig ab, falls du verhindert bist.</p>
+          <p class="rule"><strong>Verhalten während Events:</strong> Sei pünktlich, konzentriert und halte dich an alle Anweisungen der Eventleitung.</p>
+          <p class="rule"><strong>Fairness &amp; Teamgeist:</strong> Gewinne mit Stil, verliere mit Würde – respektiere andere Teilnehmende.</p>
+        </div>
 
-  <footer>
-    <p>© 2025 DVBG Clan — Alle Rechte vorbehalten</p>
-    <p>Kontakt: <a href="mailto:dvbg.official@gmail.com">dvbg.official@gmail.com</a> | Verantwortlich: freefabi67</p>
-  </footer>
+        <div class="block animate-up" style="animation-delay:0.46s; margin-top:14px">
+          <h3 id="sicherheit">🔐 5. Sicherheit &amp; Datenschutz</h3>
+          <p class="rule"><strong>Privatsphäre:</strong> Gib keine privaten Daten (z. B. Wohnort, Telefonnummer, Passwörter) weiter.</p>
+          <p class="rule"><strong>Verdächtige Links:</strong> Klicke keine unbekannten oder unseriösen Links. Melde sie sofort an die Clanleitung.</p>
+        </div>
+
+        <div class="block animate-up" style="animation-delay:0.52s; margin-top:14px">
+          <h3 id="konsequenzen">⚠️ 6. Konsequenzen bei Regelverstößen</h3>
+          <p>Je nach Schweregrad kann die Clanleitung folgende Maßnahmen ergreifen:</p>
+          <ul style="margin-top:8px;color:var(--muted)">
+            <li>Mündliche oder schriftliche Verwarnung</li>
+            <li>Temporäre Sperre (In-Game oder Discord)</li>
+            <li>Permanent-Ausschluss aus dem Clan</li>
+          </ul>
+          <p style="margin-top:8px;color:var(--muted)"><strong>Hinweis:</strong> Wiederholte oder besonders schwere Verstöße führen ohne Vorwarnung zum Ausschluss.</p>
+        </div>
+
+        <div class="block animate-up" style="animation-delay:0.58s; margin-top:14px">
+          <h3>🛡️ 7. Schlussbestimmungen</h3>
+          <p class="muted">Die Clanleitung behält sich vor, das Regelwerk jederzeit zu erweitern oder anzupassen. Unwissenheit schützt nicht vor Konsequenzen.</p>
+          <p style="margin-top:8px">Mit dem Beitritt in den DVBG Clan erklärst du dich mit allen Regeln vollständig einverstanden.</p>
+          <p class="muted" style="margin-top:10px">✨ Gemeinsam stark – fair, respektvoll und als Team auf OPSucht!</p>
+          <p style="margin-top:12px;color:var(--muted)">💬 Bei Fragen oder Problemen kannst du dich jederzeit an die Clanleitung wenden.</p>
+        </div>
+
+        <!-- Impressum block inside main content for visibility -->
+        <div class="block animate-up" id="impressum" style="animation-delay:0.64s; margin-top:14px">
+          <h3>Impressum</h3>
+          <p class="muted">Angaben gemäß deiner Vorgabe</p>
+          <p style="margin-top:8px">Name / Betreiber: <strong>freefabi67</strong></p>
+          <p>Kontakt: <a href="mailto:dvbg.official@gmail.com">dvbg.official@gmail.com</a></p>
+          <p style="margin-top:8px;color:var(--muted);font-size:13px">Dieses Impressum gilt für die auf dieser Seite dargestellten Inhalte des DVBG Clans.</p>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="aside-card animate-stagger" style="animation-delay:0.65s">
+          <h4>Kurzübersicht</h4>
+          <p class="muted">Respekt • Kein Hass • Fairplay • Aktiv bleiben</p>
+
+          <div style="margin-top:12px">
+            <strong class="muted">Quicklinks</strong>
+            <div style="margin-top:6px;display:flex;flex-direction:column;gap:6px">
+              <a href="#konsequenzen" class="muted">Konsequenzen</a>
+              <a href="#sicherheit" class="muted">Sicherheit</a>
+              <a href="#events" class="muted">Events</a>
+            </div>
+          </div>
+
+          <div class="cta">
+            <button class="secondary" onclick="location.href='mailto:dvbg.official@gmail.com'">Kontakt: dvbg.official@gmail.com</button>
+            <button class="secondary" onclick="alert('Support: wende dich im Discord an die Clanleitung.')">Support / Fragen</button>
+          </div>
+
+          <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.02);padding-top:12px;color:var(--muted);font-size:13px">
+            © <span id="year"></span> DVBG Clan — freefabi67
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <p class="muted">Bei Fragen oder Problemen: wendet euch an die Clanleitung (dvbg.official@gmail.com).</p>
+    </footer>
+  </div>
 
   <script>
-    // Versucht zuerst logo/logo.png, dann logo.png, sonst Fallback
-    const logoContainer = document.getElementById('logo-container');
-    const fallback = document.getElementById('fallback-logo');
+    // Logo-loading fallback: first check logo/logo.png, then logo.png, otherwise show text fallback
+    (function(){
+      const imgEl = document.getElementById('logoImg');
+      const container = imgEl ? imgEl.parentElement : null;
+      const fallbackText = document.createElement('div');
+      fallbackText.style.width = '64px';
+      fallbackText.style.height = '64px';
+      fallbackText.style.display = 'flex';
+      fallbackText.style.alignItems = 'center';
+      fallbackText.style.justifyContent = 'center';
+      fallbackText.style.fontWeight = '800';
+      fallbackText.style.color = 'white';
+      fallbackText.style.fontSize = '18px';
+      fallbackText.textContent = 'DVBG';
 
-    function loadLogo(path) {
-      return new Promise(resolve => {
-        const img = new Image();
-        img.src = path;
-        img.onload = () => resolve(img);
-        img.onerror = () => resolve(null);
-      });
-    }
-
-    (async () => {
-      const paths = ['logo/logo.png', 'logo.png'];
-      for (const path of paths) {
-        const img = await loadLogo(path);
-        if (img) {
-          img.alt = 'DVBG Logo';
-          fallback.remove();
-          logoContainer.appendChild(img);
-          break;
-        }
+      function trySrc(srcs){
+        return new Promise(resolve=>{
+          let i=0;
+          function next(){
+            if(i>=srcs.length){resolve(null);return}
+            const test = new Image();
+            test.src = srcs[i];
+            test.onload = ()=>resolve(srcs[i]);
+            test.onerror = ()=>{i++; next();}
+          }
+          next();
+        });
       }
+
+      const sources = ['logo/logo.png','logo.png'];
+      trySrc(sources).then(found=>{
+        if(found && imgEl){
+          imgEl.src = found;
+          imgEl.style.display = '';
+        } else if(container){
+          // replace image with text fallback
+          container.innerHTML = '';
+          container.appendChild(fallbackText);
+        }
+      });
     })();
+
+    // smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // small accessible keyboard hint for CTA buttons
+    document.querySelectorAll('.secondary').forEach(b=>{
+      b.addEventListener('keydown', e=>{ if(e.key === 'Enter' || e.key === ' ') b.click(); });
+    });
   </script>
 </body>
 </html>
